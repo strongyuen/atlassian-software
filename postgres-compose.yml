@@ -1,0 +1,26 @@
+version: "3.4"
+services:
+  postgressql:
+    image: postgres
+    restart: always
+    container_name: postgressql
+    hostname: postgressql
+    environment:
+      POSTGRES_USER: postgre
+      POSTGRES_PASSWORD: 'DA.13jpj93%eBw_Q'
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    networks:
+      my-net:
+       aliases:
+        - postgres-db
+    ports:
+      - 5432:5432
+
+networks:
+  my-net:
+    external: true
+volumes:
+  postgresql-data:
+    name: postgresql-data
+
